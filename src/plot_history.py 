@@ -1,0 +1,51 @@
+import matplotlib.pyplot as plt
+import pickle
+import numpy as np
+
+pickle_off = open("../saved_models/train_history_dict", "rb")
+history = pickle.load(pickle_off)
+print(history)
+
+
+# list all data in history
+print(history.keys())
+# # summarize history for accuracy
+# plt.plot(history['acc'])
+# plt.plot(history['val_acc'])
+# plt.title('model accuracy')
+# plt.ylabel('accuracy')
+# plt.xlabel('epoch')
+# plt.legend(['train', 'test'], loc='upper left')
+# plt.show()
+# # summarize history for loss
+# plt.plot(history['loss'])
+# plt.plot(history['val_loss'])
+# plt.title('model loss')
+# plt.ylabel('loss')
+# plt.xlabel('epoch')
+# plt.legend(['train', 'test'], loc='upper left')
+# plt.show()
+
+
+objects = ('Single Label', 'Multi-Label')
+y_pos = np.arange(len(objects))
+performance = [2.43, 0.23]
+
+plt.bar(y_pos, performance, align='center', alpha=0.5)
+plt.xticks(y_pos, objects)
+plt.ylabel('Loss')
+plt.title('Single-label vs Multi-label Loss')
+
+plt.show()
+
+
+objects = ('Single Label', 'Multi-Label')
+y_pos = np.arange(len(objects))
+performance = [54.5, 92.05]
+
+plt.bar(y_pos, performance, align='center', alpha=0.5)
+plt.xticks(y_pos, objects)
+plt.ylabel('Accuracy')
+plt.title('Single-label vs Multi-label Loss')
+
+plt.show()
